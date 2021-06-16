@@ -37,12 +37,12 @@ function createCityList(citySearchList) {
       url: queryURL,
       method: "GET"
     })
-      // Store all of the retrieved data inside of an object called "weather"
+      //Stores weather data
       .then(function(weather) {
         // Log the queryURL
         console.log(queryURL);
   
-        // Log the resulting object
+        //Logs resulting data
         console.log(weather);
   
         var nowMoment = moment();
@@ -81,7 +81,7 @@ function createCityList(citySearchList) {
         $.ajax({
           url: queryURL3,
           method: "GET"
-          // Store all of the retrieved data inside of an object called "uvIndex"
+          //Stores data in Uv Index
         }).then(function(uvIndex) {
           console.log(uvIndex);
   
@@ -95,14 +95,14 @@ function createCityList(citySearchList) {
           $.ajax({
             url: queryURL2,
             method: "GET"
-            // Store all of the retrieved data inside of an object called "forecast"
+            //Stores forecast data
           }).then(function(forecast) {
             console.log(queryURL2);
   
             console.log(forecast);
-            // Loop through the forecast list array and display a single forecast entry/time (5th entry of each day which is close to the highest temp/time of the day) from each of the 5 days
+            //Loops forcast list
             for (var i = 6; i < forecast.list.length; i += 8) {
-              // 6, 14, 22, 30, 38
+              
               var forecastDate = $("<h5>");
   
               var forecastPosition = (i + 2) / 8;
@@ -168,7 +168,7 @@ function createCityList(citySearchList) {
         .toLowerCase();
   
       if (city != "") {
-        //Check to see if there is any text entered
+        
       
         citySearchList[city] = true;
       localStorage.setItem("citySearchList", JSON.stringify(citySearchList));
